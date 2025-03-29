@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damdibox — Казахские закуски</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .label-circle {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.85);
+            color: #e65100;
+            border-radius: 50%;
+            padding: 10px 16px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            font-size: 0.9rem;
+            text-align: center;
+            min-width: 50px;
+            margin: 5px;
+        }
+
+        .catalog .box .label-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Добро пожаловать в Damdibox</h1>
+        <p>Коробки с казахскими национальными закусками</p>
+        <div class="cart-icon" onclick="openCart()">
+            🛒 <span id="cart-count">0</span>
+        </div>
+        <nav>
+            <a href="#catalog">Наши боксы</a>
+            <a href="#constructor">Собрать бокс</a>
+            <a href="#order">Оформить заказ</a>
+            <a href="#loyalty">Лояльность</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <p class="banner"><strong>К каждому боксу идет мини подарок!</strong> <br><a href="#">Узнать подробнее</a></p>
+        <div class="buttons">
+            <a href="#catalog" class="btn">Выбрать свой бокс</a>
+            <a href="#constructor" class="btn">Собрать свой бокс</a>
+        </div>
+    </section>
+
+    <section class="reviews">
+        <h2>Отзывы</h2>
+        <blockquote>«В Damdibox нашёл настоящие казахские деликатесы — лучший подарок для друзей!» — Алия, Алматы
+        </blockquote>
+        <blockquote>«Бокс с закусками стал моим любимым перекусом. Всё вкусно и свежо!» — Ержан, Нур-Султан</blockquote>
+    </section>
+
+    <section id="catalog" class="catalog">
+        <h2>Наши боксы</h2>
+        <div class="box">
+            <img src="images/box4.png" alt="4 секции">
+            <h3>4 секции — 3990₸</h3>
+            <p>Бюджетный бокс с популярными продуктами.</p>
+            <div class="label-row">
+                <div class="label-circle">Курт</div>
+                <div class="label-circle">Сушёные фрукты</div>
+                <div class="label-circle">Жент</div>
+                <div class="label-circle">Орехи</div>
+            </div>
+        </div>
+        <div class="box">
+            <img src="images/box6.png" alt="6 секций">
+            <h3>6 секций — 5990₸</h3>
+            <p>Разнообразные закуски для любого случая.</p>
+            <div class="label-row">
+                <div class="label-circle">Курт</div>
+                <div class="label-circle">Жент</div>
+                <div class="label-circle">Баурсаки</div>
+                <div class="label-circle">Сушёные фрукты</div>
+                <div class="label-circle">Орехи</div>
+                <div class="label-circle">Иримшик</div>
+            </div>
+        </div>
+        <div class="box">
+            <img src="images/box9.png" alt="9 секций">
+            <h3>9 секций — 8990₸</h3>
+            <p>Премиум бокс для ценителей.</p>
+            <div class="label-row">
+                <div class="label-circle">Курт</div>
+                <div class="label-circle">Жент</div>
+                <div class="label-circle">Баурсаки</div>
+                <div class="label-circle">Сушёные фрукты</div>
+                <div class="label-circle">Орехи</div>
+                <div class="label-circle">Иримшик</div>
+                <div class="label-circle">Финики</div>
+                <div class="label-circle">Талкан</div>
+                <div class="label-circle">Белая халва</div>
+                <div class="label-circle">Чак-чак</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="constructor" class="constructor">
+        <h2>Собери свой бокс</h2>
+        <form id="custom-box-form">
+            <label>Секции:
+                <select id="section-count">
+                    <option value="4">4</option>
+                    <option value="6" selected>6</option>
+                    <option value="9">9</option>
+                </select>
+            </label>
+            <fieldset>
+                <legend>Выберите продукты:</legend>
+                <div id="product-list">
+                    <label><input type="checkbox" value="Курт" data-price="500"> Курт</label>
+                    <label><input type="checkbox" value="Жент" data-price="600"> Жент</label>
+                    <label><input type="checkbox" value="Баурсаки" data-price="400"> Баурсаки</label>
+                    <label><input type="checkbox" value="Сушёные фрукты" data-price="550"> Сушёные фрукты</label>
+                    <label><input type="checkbox" value="Орехи" data-price="700"> Орехи</label>
+                    <label><input type="checkbox" value="Иримшик" data-price="500"> Иримшик</label>
+                    <label><input type="checkbox" value="Финики" data-price="450"> Финики</label>
+                    <label><input type="checkbox" value="Талкан" data-price="350"> Талкан</label>
+                    <label><input type="checkbox" value="Белая халва" data-price="400"> Белая халва</label>
+                    <label><input type="checkbox" value="Чак-чак" data-price="550"> Чак-чак</label>
+                </div>
+            </fieldset>
+            <button type="submit">Добавить в корзину</button>
+            <div id="selected-products"></div>
+        </form>
+    </section>
+
+    <section id="order" class="order">
+        <h2>Оформление заказа</h2>
+        <form>
+            <label>Имя: <input type="text" required></label>
+            <label>Телефон: <input type="tel" required></label>
+            <label>Email: <input type="email"></label>
+            <label>Адрес доставки: <input type="text"></label>
+            <p>Способ получения:</p>
+            <label><input type="radio" name="delivery" checked> Самовывоз</label>
+            <label><input type="radio" name="delivery"> Курьерская доставка</label>
+            <p>Оплата:</p>
+            <label><input type="radio" name="payment" checked> Онлайн</label>
+            <label><input type="radio" name="payment"> Наличные</label>
+            <button type="submit">Оформить заказ</button>
+        </form>
+    </section>
+
+    <section id="loyalty" class="loyalty">
+        <h2>Программа лояльности</h2>
+        <ul>
+            <li>Каждый 5-й заказ — бесплатно</li>
+            <li>Скидки за рекомендации</li>
+            <li>Бонусы за отзывы</li>
+        </ul>
+    </section>
+
+    <section id="contacts" class="contacts">
+        <h2>Контакты и поддержка</h2>
+        <form>
+            <label>Ваше сообщение:<br>
+                <textarea rows="4" required></textarea>
+            </label>
+            <button type="submit">Отправить</button>
+        </form>
+        <p>Чат-бот: <a href="#">Написать</a></p>
+        <p>Мы в соцсетях: <a href="#">Telegram</a>, <a href="#">Instagram</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Damdibox — Все права защищены</p>
+    </footer>
+
+    <!-- Модальное окно -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <h3>Ваш заказ</h3>
+            <div id="cart-details"></div>
+        </div>
+    </div>
+
+    <script>
+        const sectionSelect = document.getElementById('section-count');
+        const checkboxes = document.querySelectorAll('#product-list input[type="checkbox"]');
+        const form = document.getElementById('custom-box-form');
+        const selectedBox = document.getElementById('selected-products');
+
+        function updateCartCount() {
+            const count = [...checkboxes].filter(cb => cb.checked).length;
+            document.getElementById('cart-count').innerText = count;
+        }
+
+        function updateCheckboxesLimit() {
+            const max = parseInt(sectionSelect.value);
+            const checked = [...checkboxes].filter(cb => cb.checked);
+
+            checkboxes.forEach(cb => cb.disabled = false);
+
+            if (checked.length >= max) {
+                checkboxes.forEach(cb => {
+                    if (!cb.checked) cb.disabled = true;
+                });
+            }
+        }
+
+        function openCart() {
+            const selected = [...checkboxes].filter(cb => cb.checked);
+            const details = selected.map(cb => `<li>${cb.value} — ${cb.dataset.price}₸</li>`).join('');
+            const total = selected.reduce((sum, cb) => sum + parseInt(cb.dataset.price), 0);
+            document.getElementById('cart-details').innerHTML =
+                selected.length
+                    ? `<ul>${details}</ul><p><strong>Итого:</strong> ${total}₸</p>`
+                    : '<p>Корзина пуста.</p>';
+            document.getElementById('cart-modal').style.display = 'block';
+        }
+
+        function closeCart() {
+            document.getElementById('cart-modal').style.display = 'none';
+        }
+
+        checkboxes.forEach(cb => cb.addEventListener('change', () => {
+            updateCheckboxesLimit();
+            updateCartCount();
+        }));
+
+        sectionSelect.addEventListener('change', () => {
+            checkboxes.forEach(cb => cb.checked = false);
+            checkboxes.forEach(cb => cb.disabled = false);
+            selectedBox.innerHTML = '';
+            updateCartCount();
+        });
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const selected = [...checkboxes].filter(cb => cb.checked);
+            if (selected.length === 0) {
+                selectedBox.innerHTML = '<p>Вы не выбрали ни одного продукта.</p>';
+            } else {
+                const items = selected.map(cb => cb.value);
+                const total = selected.reduce((sum, cb) => sum + parseInt(cb.dataset.price), 0);
+                selectedBox.innerHTML = '<h4>Вы выбрали:</h4><ul>' + items.map(item => `<li>${item}</li>`).join('') + `</ul><p><strong>Итого:</strong> ${total}₸</p>`;
+            }
+        });
+    </script>
+</body>
+
+</html>
